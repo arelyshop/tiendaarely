@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arelyshop.pe - Página Principal</title>
+    <title>Cable Usb C Ugreen - Arelyshop.pe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,18 +11,20 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            padding-bottom: 100px; /* Space for sticky footer on mobile */
         }
-        .carousel-container {
-            overflow: hidden;
-            position: relative;
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
         }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+        /* Custom styles for active states and details */
+        .thumbnail-active {
+            border-color: #ff6e00; 
         }
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
+        .tab-active {
+            border-bottom-color: #ff6e00;
+            color: #1F2937; /* gray-800 */
         }
         .menu-icon {
             width: 24px;
@@ -140,71 +142,179 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Banner Carousel -->
-        <section class="carousel-container w-full">
-            <div class="carousel-track">
-                <div class="carousel-slide">
-                    <picture>
-                        <source media="(max-width: 680px)" srcset="https://images.ctfassets.net/u7dr43bszaws/66KmxBFA1XDgOb3OT4qAI7/5a5244a2e7e1f6192797b6ad91a0a24c/mv-electrodays-08092025-01.webp">
-                        <source media="(min-width: 681px)" srcset="https://images.ctfassets.net/u7dr43bszaws/6uPmEPlRyyyX5qraEL7fgH/603080e7fe81b916a5bd9c3663b99bd5/dv-electrodays-08092025-01.webp">
-                        <img src="https://images.ctfassets.net/u7dr43bszaws/6uPmEPlRyyyX5qraEL7fgH/603080e7fe81b916a5bd9c3663b99bd5/dv-electrodays-08092025-01.webp" alt="Banner Electro" class="w-full h-auto">
-                    </picture>
-                </div>
-                <div class="carousel-slide">
-                    <picture>
-                         <source media="(max-width: 680px)" srcset="https://images.ctfassets.net/u7dr43bszaws/6ln79kVjBMV6DjrJUMbCkS/c7f36d11eb7533be85155245847683b1/mv-electrodays-08092025-02-v2.webp">
-                         <source media="(min-width: 681px)" srcset="https://images.ctfassets.net/u7dr43bszaws/7JQY9l2UBFtMvRoLUynEaw/5965927ce36ec35226917a2943edf2f4/dv-electrodays-08092025-02-v2.webp">
-                         <img src="https://images.ctfassets.net/u7dr43bszaws/7JQY9l2UBFtMvRoLUynEaw/5965927ce36ec35226917a2943edf2f4/dv-electrodays-08092025-02-v2.webp" alt="Banner Muebles" class="w-full h-auto">
-                    </picture>
-                </div>
-                <div class="carousel-slide">
-                     <picture>
-                        <source media="(max-width: 680px)" srcset="https://images.ctfassets.net/u7dr43bszaws/40i20DkhBSE4Fb8Qf3Ly2l/96d3ee49691b2e8a9b81140e7594909d/mv-electrodays-08092025-16.webp">
-                        <source media="(min-width: 681px)" srcset="https://images.ctfassets.net/u7dr43bszaws/71gchaBPihvJXWpv7UEnjo/654715b21d83948ce4dbec900d9115d7/dv-electrodays-08092025-16.webp">
-                        <img src="https://images.ctfassets.net/u7dr43bszaws/71gchaBPihvJXWpv7UEnjo/654715b21d83948ce4dbec900d9115d7/dv-electrodays-08092025-16.webp" alt="Banner Iluminacion" class="w-full h-auto">
-                    </picture>
-                </div>
-                 <div class="carousel-slide">
-                    <picture>
-                        <source media="(max-width: 680px)" srcset="https://images.ctfassets.net/u7dr43bszaws/DwXC3cI92xFp7XOgwOfWw/8dd578c68c66d5eeb09ebeb94a951492/mv-electrodays-08092025-03.webp">
-                        <source media="(min-width: 681px)" srcset="https://images.ctfassets.net/u7dr43bszaws/2tAb5ueccl3tb4zXNkgWXz/fa32e56f0fd5bb72bb6000c8c110e44e/dv-electrodays-08092025-03.webp">
-                        <img src="https://images.ctfassets.net/u7dr43bszaws/2tAb5ueccl3tb4zXNkgWXz/fa32e56f0fd5bb72bb6000c8c110e44e/dv-electrodays-08092025-03.webp" alt="Banner Samsung" class="w-full h-auto">
-                    </picture>
-                </div>
-            </div>
-            <!-- Controls -->
-            <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </button>
-            <!-- Dots -->
-            <div id="dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
-        </section>
+    <!-- Main Product Section -->
+    <main class="container mx-auto p-4 md:p-8">
+        <!-- Breadcrumbs -->
+        <nav class="text-sm text-gray-500 mb-4">
+            <a href="index.html" class="hover:underline">Arelyshop</a> &gt;
+            <a href="#" class="hover:underline">Tecnología</a> &gt;
+            <a href="#" class="hover:underline">Telefonía</a> &gt;
+            <span class="text-gray-700">Cables y cargadores de celular</span>
+        </nav>
 
-        <!-- Placeholder for other home page content -->
-        <section class="container mx-auto p-4 md:p-8">
-            <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Productos Destacados</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Example Product Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                    <a href="product.html" class="block">
-                        <img src="https://promart.vteximg.com.br/arquivos/ids/9160400-444-444/imageUrl_1.jpg?v=638895404326000000" alt="Producto 1" class="w-full h-48 object-cover group-hover:opacity-80 transition">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-gray-800">Cable Usb C Ugreen</h3>
-                            <p class="text-gray-600 mt-2">Bs. 45.99</p>
+        <div class="bg-white p-4 md:p-8 rounded-lg shadow-lg">
+            <!-- Mobile Title Section -->
+            <div class="lg:hidden mb-4">
+                 <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs text-gray-600">Vendido por <a href="#" class="text-[#ff6e00] font-semibold">SantofaElectronics</a></p>
+                         <div class="flex items-center text-xs text-gray-500">
+                            <span class="text-amber-500">★★★★★</span>
+                            <span class="ml-1">| +500 ventas</span>
                         </div>
-                    </a>
-                </div>
-                 <!-- Add more product cards as needed -->
+                    </div>
+                    <button class="text-gray-500 hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                        </svg>
+                    </button>
+                 </div>
+                 <h1 class="text-xl font-bold text-gray-800 mt-2">Cable Usb C Tipo C A Tipo C 10gbps Hd 100w Ugreen 1 Metro</h1>
+                 <div class="flex items-center space-x-2 text-sm mt-1">
+                    <span class="font-semibold text-gray-700">UGREEN</span>
+                    <span class="text-gray-500">| SKU: 1001467911</span>
+                 </div>
+                 <div class="mt-2">
+                    <span class="bg-gray-800 text-white text-xs font-semibold px-2 py-1 rounded">Exclusivo para venta web</span>
+                 </div>
             </div>
-        </section>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Product Image Gallery -->
+                <div class="relative">
+                    <div class="border rounded-lg mb-4">
+                        <img id="main-image" src="https://promart.vteximg.com.br/arquivos/ids/9160400-1000-1000/imageUrl_1.jpg?v=638895404326000000" alt="Cable USB C a USB C Ugreen" class="w-full h-auto object-cover rounded-lg">
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <button class="absolute top-1/2 left-2 -translate-y-1/2 bg-white/50 hover:bg-white rounded-full p-2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                     <button class="absolute top-1/2 right-2 -translate-y-1/2 bg-white/50 hover:bg-white rounded-full p-2 shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
 
+                    <div class="flex justify-center items-center space-x-2 mt-4">
+                        <span class="h-2 w-2 bg-[#ff6e00] rounded-full"></span>
+                        <span class="h-2 w-2 bg-gray-300 rounded-full"></span>
+                        <span class="h-2 w-2 bg-gray-300 rounded-full"></span>
+                        <span class="h-2 w-2 bg-gray-300 rounded-full"></span>
+                    </div>
+
+                    <button class="absolute bottom-4 right-4 bg-white rounded-full p-2 shadow-lg">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#ff6e00]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Product Details and Actions -->
+                <div class="hidden lg:block">
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Cable Usb C Tipo C A Tipo C 10gbps Hd 100w Ugreen 1 Metro</h1>
+                    <div class="flex items-center space-x-4 my-2">
+                        <span class="text-sm text-gray-600">Marca: <a href="#" class="text-[#ff6e00] font-semibold hover:underline">UGREEN</a></span>
+                        <span class="text-sm text-gray-500">SKU: 1001467911</span>
+                    </div>
+                    
+                    <div class="my-4">
+                        <span class="bg-red-100 text-red-700 text-sm font-bold px-3 py-1 rounded-full">-29%</span>
+                    </div>
+                    
+                    <div class="flex items-baseline space-x-2 my-4">
+                        <span class="text-3xl font-bold text-gray-800">Bs. 45.99</span>
+                        <span class="text-lg text-gray-500 line-through">Bs. 65.00</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Con Tarjeta oh! págalo en 3 cuotas de <b class="text-gray-800">Bs. 17.32</b></p>
+                    
+                    <div class="flex items-center space-x-2 my-6">
+                        <label for="quantity-desktop" class="font-semibold">Cantidad:</label>
+                        <div class="flex items-center border border-gray-300 rounded-md">
+                            <button onclick="updateQuantity(-1, 'quantity-desktop')" class="px-3 py-1 text-lg font-bold text-gray-600 hover:bg-gray-100 rounded-l-md">-</button>
+                            <input id="quantity-desktop" type="text" value="1" class="w-12 text-center border-l border-r focus:outline-none">
+                            <button onclick="updateQuantity(1, 'quantity-desktop')" class="px-3 py-1 text-lg font-bold text-gray-600 hover:bg-gray-100 rounded-r-md">+</button>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-[#ff6e00] hover:bg-[#e66300] text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 flex items-center justify-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <span>Agregar al carrito</span>
+                    </button>
+                    
+                    <div class="mt-8 border-t pt-6">
+                        <h3 class="font-bold text-gray-800 mb-4">Métodos de entrega</h3>
+                        <div class="space-y-3">
+                             <div class="flex items-center p-3 border rounded-lg">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#ff6e00] mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8a1 1 0 001-1zM3 18h6" /></svg>
+                                <div>
+                                    <p class="font-semibold">Despacho programado</p>
+                                    <p class="text-sm text-gray-600">Hasta <b>2 días hábiles a partir de Bs.11</b></p>
+                                </div>
+                                <a href="#" class="ml-auto text-[#ff6e00] font-semibold text-sm hover:underline">Calcular</a>
+                            </div>
+                             <div class="flex items-center p-3 border rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#ff6e00] mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                <div>
+                                    <p class="font-semibold">Retiro en tienda</p>
+                                    <p class="text-sm text-gray-600">Desde el <b>12 de sep. Gratis</b></p>
+                                </div>
+                                <a href="#" class="ml-auto text-[#ff6e00] font-semibold text-sm hover:underline">Ver tiendas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Information Tabs -->
+            <div class="mt-12 border-t pt-8">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <button class="tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300 tab-active" data-tab="description">
+                            Descripción
+                        </button>
+                        <button class="tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="features">
+                            Características
+                        </button>
+                        <button class="tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="specs">
+                            Ficha técnica
+                        </button>
+                    </nav>
+                </div>
+                <div class="mt-6">
+                    <div id="description" class="tab-content text-gray-700 leading-relaxed">
+                        <p class="font-semibold">Marca: UGREEN</p>
+                        <p class="font-semibold">Modelo: 45063</p>
+                        <br>
+                        <p>El cable USB-C a USB-C UGREEN 45063 está diseñado para carga rápida y transferencia de datos en dispositivos con puerto USB-C.</p>
+                        <br>
+                        <h4 class="font-bold text-lg mb-2">Funciones principales</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><b>Carga rápida de hasta 100W:</b> Ideal para laptops, tablets y smartphones que requieren alta potencia.</li>
+                            <li><b>Transferencia de datos a 480 Mbps:</b> Permite mover archivos, fotos o videos rápidamente.</li>
+                            <li><b>Chip E-Marker integrado:</b> Optimiza la entrega de energía, garantizando seguridad y eficiencia.</li>
+                        </ul>
+                        <br>
+                        <h4 class="font-bold text-lg mb-2">Que incluye tu compra:</h4>
+                        <p>1 x Cable Usb C Tipo C a Tipo C 10gbps Hd 100w UGREEN 1 Metro</p>
+                    </div>
+                    <div id="features" class="tab-content text-gray-700 hidden">
+                        <p>El cable está diseñado para carga rápida y transferencia de datos en dispositivos con puerto USB-C.</p>
+                    </div>
+                    <div id="specs" class="tab-content text-gray-700 hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div><b>Color principal:</b> Negro</div>
+                            <div><b>Modelo:</b> 45063</div>
+                            <div><b>Carga rápida:</b> Sí</div>
+                            <div><b>Largo del cable:</b> 100 cm</div>
+                            <div><b>Alto:</b> 1 cm</div>
+                            <div><b>Ancho:</b> 1 cm</div>
+                            <div><b>Incluye:</b> 1 x Cable Usb C a Tipo C UGREEN 1 Metro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    
+
+     <!-- Footer Section -->
     <footer class="bg-gray-800 text-white mt-12">
         <div class="container mx-auto py-8 px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -255,7 +365,7 @@
                         <li><a href="#" class="hover:underline">Cambios y Devoluciones</a></li>
                         <li><a href="#" class="hover:underline">Términos y Condiciones</a></li>
                         <li><a href="#" class="hover:underline">Política de Privacidad</a></li>
-                        <li><a href="#" class="hover:underline">Mis pedidos</a></li>
+                         <li><a href="#" class="hover:underline">Mis pedidos</a></li>
                     </ul>
                 </div>
                 <!-- Social and Payment -->
@@ -285,77 +395,85 @@
         </div>
     </footer>
 
+    <!-- Sticky Footer for Mobile -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white p-3 border-t shadow-lg flex items-center justify-between z-40">
+        <div class="flex items-center border border-gray-300 rounded-md">
+            <button onclick="updateQuantity(-1, 'quantity-mobile')" class="px-4 py-2 text-xl font-bold text-gray-600 hover:bg-gray-100 rounded-l-md">-</button>
+            <input id="quantity-mobile" type="text" value="1" class="w-12 text-center text-lg font-semibold border-l border-r focus:outline-none">
+            <button onclick="updateQuantity(1, 'quantity-mobile')" class="px-4 py-2 text-xl font-bold text-gray-600 hover:bg-gray-100 rounded-r-md">+</button>
+        </div>
+        <button class="bg-[#ff6e00] hover:bg-[#e66300] text-white font-bold py-3 px-6 rounded-lg text-md flex-grow ml-4">
+            Agregar
+        </button>
+    </div>
+
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const track = document.querySelector('.carousel-track');
-            const slides = Array.from(track.children);
-            const nextButton = document.getElementById('nextBtn');
-            const prevButton = document.getElementById('prevBtn');
-            const dotsContainer = document.getElementById('dots-container');
-
-            if (slides.length === 0) return;
-
-            const slideWidth = slides[0].getBoundingClientRect().width;
+        // Image Gallery Logic
+        function changeImage(element) {
+            const mainImage = document.getElementById('main-image');
+            if(!mainImage || !element) return;
+            mainImage.src = element.src.replace('-55-55', '-1000-1000'); // Use high-res version
             
-            let currentIndex = 0;
-
-            // Create dots
-            slides.forEach((slide, index) => {
-                const dot = document.createElement('button');
-                dot.classList.add('h-2', 'w-2', 'rounded-full', 'bg-white/50', 'transition');
-                if (index === 0) {
-                    dot.classList.add('bg-white');
-                }
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarousel();
-                });
-                dotsContainer.appendChild(dot);
+            // Update active state for thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('thumbnail-active');
             });
-            
-            const dots = Array.from(dotsContainer.children);
+            element.classList.add('thumbnail-active');
+        }
 
-            const updateCarousel = () => {
-                if(!track) return;
-                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
-                dots.forEach((dot, index) => {
-                    if (index === currentIndex) {
-                        dot.classList.add('bg-white');
-                        dot.classList.remove('bg-white/50');
-                    } else {
-                        dot.classList.remove('bg-white');
-                        dot.classList.add('bg-white/50');
+        // Quantity Counter Logic
+        function updateQuantity(change, inputId) {
+            const quantityInput = document.getElementById(inputId);
+            if(!quantityInput) return;
+
+            let currentValue = parseInt(quantityInput.value);
+            if (isNaN(currentValue)) currentValue = 1;
+            
+            let newValue = currentValue + change;
+            if (newValue < 1) newValue = 1; // Minimum quantity is 1
+            
+            quantityInput.value = newValue;
+
+            // Sync both quantity inputs if they exist
+            const otherId = inputId === 'quantity-mobile' ? 'quantity-desktop' : 'quantity-mobile';
+            const otherInput = document.getElementById(otherId);
+            if (otherInput) {
+                otherInput.value = newValue;
+            }
+        }
+        
+        // Tab switching logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Deactivate all tabs and hide all content
+                    tabs.forEach(t => t.classList.remove('tab-active'));
+                    tabContents.forEach(c => c.classList.add('hidden'));
+
+                    // Activate clicked tab and show its content
+                    tab.classList.add('tab-active');
+                    const contentId = tab.getAttribute('data-tab');
+                    const contentEl = document.getElementById(contentId);
+                    if(contentEl) {
+                       contentEl.classList.remove('hidden');
                     }
                 });
-            };
-
-            // When I click left, move slides to the left
-            prevButton.addEventListener('click', e => {
-                currentIndex--;
-                if (currentIndex < 0) {
-                    currentIndex = slides.length - 1;
-                }
-                updateCarousel();
             });
 
-            // When I click right, move slides to the right
-            nextButton.addEventListener('click', e => {
-                currentIndex++;
-                if (currentIndex >= slides.length) {
-                    currentIndex = 0;
-                }
-                updateCarousel();
-            });
-
-            // Autoplay
-            setInterval(() => {
-                if(nextButton) {
-                   nextButton.click();
-                }
-            }, 5000); // Change slide every 5 seconds
+            // Initialize quantity sync on load
+             const desktopInput = document.getElementById('quantity-desktop');
+             const mobileInput = document.getElementById('quantity-mobile');
+             if(desktopInput && mobileInput) {
+                desktopInput.addEventListener('input', () => mobileInput.value = desktopInput.value);
+                mobileInput.addEventListener('input', () => desktopInput.value = mobileInput.value);
+             }
         });
-
     </script>
+
 </body>
 </html>
 
