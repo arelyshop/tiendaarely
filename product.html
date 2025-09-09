@@ -32,11 +32,15 @@
 <body class="bg-gray-100">
 
     <!-- Promotional Banner -->
-    <div class="bg-[#4F07C8] p-1 relative text-center">
+    <div id="promo-banner" class="bg-[#4F07C8] p-1 relative text-center">
         <a href="#">
-            <img src="https://promart.vteximg.com.br/arquivos/dv-transversal-08092025.webp?v=638929316280870000" alt="aniversario" loading="lazy" class="inline-block h-8 md:h-10 w-auto">
+             <picture>
+                <source media="(max-width: 767px)" srcset="https://promart.vteximg.com.br/arquivos/mv-transversal-08092025.webp?v=638929316280870000">
+                <source media="(min-width: 768px)" srcset="https://promart.vteximg.com.br/arquivos/dv-transversal-08092025.webp?v=638929316280870000">
+                <img src="https://promart.vteximg.com.br/arquivos/dv-transversal-08092025.webp?v=638929316280870000" alt="aniversario" loading="lazy" class="inline-block h-8 md:h-10 w-auto">
+            </picture>
         </a>
-        <button onclick="this.parentElement.style.display='none'" class="absolute top-1/2 right-4 -translate-y-1/2 text-white text-2xl font-bold">&times;</button>
+        <button onclick="document.getElementById('promo-banner').style.display='none'" class="absolute top-1/2 right-4 -translate-y-1/2 text-white text-2xl font-bold">&times;</button>
     </div>
 
     <!-- Header Section -->
@@ -46,7 +50,7 @@
             <div class="container mx-auto flex items-center justify-between">
                 <!-- Mobile Menu Button -->
                 <button class="flex flex-col items-center justify-center p-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 -960 960 960" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
                     <span class="text-xs font-semibold">MENÚ</span>
                 </button>
                 
@@ -81,7 +85,7 @@
                     <!-- Desktop Logo and Menu -->
                     <div class="flex items-center space-x-4">
                         <button class="flex items-center space-x-2 p-2 rounded-md hover:bg-white/20 transition">
-                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 -960 960 960" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
                             <span class="font-semibold text-sm">MENÚ</span>
                         </button>
                         <a href="index.html" class="text-3xl font-extrabold">ARELYSHOP</a>
