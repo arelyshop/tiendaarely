@@ -45,34 +45,35 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <!-- Mobile Header -->
         <div class="md:hidden bg-[#ff6e00] text-white p-2">
-            <div class="container mx-auto flex items-center justify-between">
-                <!-- Mobile Menu Button -->
-                <button class="flex flex-col items-center justify-center p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 -960 960 960" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-                    <span class="text-xs font-semibold">MENÚ</span>
-                </button>
-                
-                <!-- Mobile Logo -->
-                <a href="index.html" class="text-xl font-extrabold">ARELYSHOP</a>
-                
-                <!-- Mobile Search and Cart -->
-                <div class="flex items-center space-x-2">
-                    <button>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="container mx-auto">
+                <div class="flex items-center justify-between">
+                    <!-- Mobile Menu Button -->
+                    <button class="flex flex-col items-center justify-center p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 -960 960 960" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                        <span class="text-xs font-semibold">MENÚ</span>
                     </button>
-                    <a href="#" class="relative">
+                    
+                    <!-- Mobile Logo -->
+                    <a href="index.html" class="h-8">
+                        <svg class="h-full w-auto" xmlns="http://www.w3.org/2000/svg" width="531.188" height="531.188" viewBox="0 0 531.188 531.188">
+                            <path fill="#fff" d="M693.71,589.857c-11.359,0-18.4-3.58-19.438-11.883-1.68-13.587-.745-30.813,3-52.026,3.556-20.16,9.646-43.922,18.436-71.581a7.007,7.007,0,0,0,2.027-4.094c2.493-14.131-18.8-50.326-42.209-50.326-5.762,0-11.654,2.193-17.348,7.451-0.62.589-198.549,184.047-283.713,191.483a86.51,86.51,0,0,1,1.164-21.38c14.256-80.8,135.758-162.6,219.4-185.636,10.16,11.569,39,28.475,48.067,13.4,9.006-15.166,7.9-30.184-1.225-44.394-13.739-21.31-34.848-31.465-59.894-31.465a113.259,113.259,0,0,0-29.372,4.154c-85.277,23.033-221.481,110.895-238.716,208.614a114.27,114.27,0,0,0-1.274,31.31c4.324,43.509,37.572,79.141,78.225,84.073a66.348,66.348,0,0,0,8.106.477c59.984,0,161.36-71.978,232.519-129.238-1.218,61.988,27.746,101.535,83.754,115.731a116.235,116.235,0,0,0,28.563,3.3,190.26,190.26,0,0,0,34.662-3.5A172.816,172.816,0,0,1,593.349,766.092h-185.7A172.742,172.742,0,0,1,234.908,593.349v-185.7A172.742,172.742,0,0,1,407.651,234.908h185.7A172.742,172.742,0,0,1,766.092,407.651V570.459C736.2,582.194,710.325,589.857,693.71,589.857Z" transform="translate(-234.906 -234.906)"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- Mobile Cart -->
+                    <a href="#" class="relative p-1">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         <span class="absolute -top-1 -right-1 bg-white text-[#ff6e00] text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
                     </a>
                 </div>
-            </div>
-             <div class="mt-2 px-2">
-                 <div class="relative">
-                    <input type="text" placeholder="¿Qué estás buscando?" class="w-full pl-10 pr-4 py-2 text-sm text-gray-900 rounded-full focus:outline-none">
-                    <div class="absolute left-3 top-1/2 -translate-y-1/2">
-                       <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
-                </div>
+                <div class="mt-2">
+                    <div class="relative">
+                       <input type="text" placeholder="¿Qué estás buscando?" class="w-full pl-10 pr-4 py-2 text-sm text-gray-900 rounded-full focus:outline-none">
+                       <div class="absolute left-3 top-1/2 -translate-y-1/2">
+                          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                       </div>
+                   </div>
+               </div>
             </div>
         </div>
 
