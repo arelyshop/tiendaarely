@@ -48,7 +48,7 @@
             <div class="container mx-auto">
                 <div class="flex items-center justify-between">
                     <!-- Mobile Menu Button -->
-                    <button class="flex flex-col items-center justify-center p-1">
+                    <button class="flex flex-col items-center justify-center p-1 space-y-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 -960 960 960" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
                         <span class="text-xs font-semibold">MENÚ</span>
                     </button>
@@ -60,13 +60,19 @@
                         </svg>
                     </a>
                     
-                    <!-- Mobile Cart -->
-                    <a href="#" class="relative p-1">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        <span class="absolute -top-1 -right-1 bg-white text-[#ff6e00] text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
-                    </a>
+                    <!-- Mobile Right Icons -->
+                    <div class="flex items-center space-x-3">
+                         <button id="mobile-search-btn">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                        <a href="#" class="relative p-1">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <span class="absolute -top-1 -right-1 bg-white text-[#ff6e00] text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="mt-2">
+                <!-- Search Bar (hidden by default) -->
+                <div id="mobile-search-bar" class="mt-2 hidden">
                     <div class="relative">
                        <input type="text" placeholder="¿Qué estás buscando?" class="w-full pl-10 pr-4 py-2 text-sm text-gray-900 rounded-full focus:outline-none">
                        <div class="absolute left-3 top-1/2 -translate-y-1/2">
@@ -273,7 +279,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Mobile search toggle
+            const searchBtn = document.getElementById('mobile-search-btn');
+            const searchBar = document.getElementById('mobile-search-bar');
+            if(searchBtn && searchBar) {
+                searchBtn.addEventListener('click', function() {
+                    searchBar.classList.toggle('hidden');
+                });
+            }
+
+            // Carousel Logic
             const track = document.querySelector('.carousel-track');
+            if (!track) return;
+
             const slides = Array.from(track.children);
             const nextButton = document.getElementById('nextBtn');
             const prevButton = document.getElementById('prevBtn');
