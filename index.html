@@ -33,9 +33,9 @@
     <div id="promo-banner" class="bg-[#4F07C8] p-1 relative text-center">
         <a href="#">
              <picture>
-                <source media="(max-width: 767px)" srcset="https://placehold.co/600x50/4F07C8/FFFFFF?text=Aniversario+Movil">
-                <source media="(min-width: 768px)" srcset="https://placehold.co/1200x50/4F07C8/FFFFFF?text=Aniversario+Escritorio">
-                <img src="https://placehold.co/1200x50/4F07C8/FFFFFF?text=Aniversario+Escritorio" alt="aniversario" loading="lazy" class="inline-block h-8 md:h-10 w-auto">
+                <source media="(max-width: 767px)" srcset="/images/banner-movil.webp">
+                <source media="(min-width: 768px)" srcset="/images/banner-escritorio.webp">
+                <img src="/images/banner-escritorio.webp" alt="aniversario" loading="lazy" class="inline-block h-8 md:h-10 w-auto">
             </picture>
         </a>
         <button onclick="document.getElementById('promo-banner').style.display='none'" class="absolute top-1/2 right-4 -translate-y-1/2 text-white text-2xl font-bold">&times;</button>
@@ -56,7 +56,7 @@
                     <!-- Logo and Search Bar -->
                     <div class="flex-1 flex items-center space-x-3">
                         <a href="index.html" class="h-9 flex-shrink-0">
-                           <img src="https://placehold.co/100x36/000000/FFFFFF?text=Arelyshop" alt="Arelyshop" class="h-full w-auto">
+                           <img src="/images/logo-movil.svg" alt="Arelyshop" class="h-full w-auto">
                         </a>
                         <div class="relative flex-1">
                             <input name="code" data-hj-allow="" id="i-search" class="js-txtSearch w-full pl-8 pr-4 py-2 text-sm text-gray-900 rounded-full focus:outline-none" autocomplete="off" type="text" value="" placeholder="¿Qué estás buscando?" enterkeyhint="search">
@@ -87,7 +87,7 @@
                             <span class="font-semibold text-sm">MENÚ</span>
                         </button>
                         <a href="index.html">
-                            <img src="https://placehold.co/150x40/000000/FFFFFF?text=Arelyshop" alt="Arelyshop" class="h-10 w-auto">
+                            <img src="/images/logo-escritorio.svg" alt="Arelyshop" class="h-10 w-auto">
                         </a>
                     </div>
 
@@ -104,14 +104,14 @@
                     <!-- Desktop Icons -->
                     <div class="flex items-center space-x-4">
                         <a href="https://www.google.com/maps/place/17%C2%B049'00.4%22S+63%C2%B010'18.8%22W" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 hover:opacity-80 transition">
-                            <img src="https://placehold.co/32x32/FFFFFF/000000?text=📍" alt="Ubicación" class="h-8 w-8 rounded-full">
+                            <img src="/images/location-icon.svg" alt="Ubicación" class="h-8 w-8">
                             <div class="text-left text-xs">
                                 <p>Ubicación de</p>
                                 <p class="font-semibold text-sm">Nuestra Tienda</p>
                             </div>
                         </a>
                         <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 hover:opacity-80 transition">
-                           <img src="https://placehold.co/32x32/25D366/FFFFFF?text=W" alt="WhatsApp" class="h-8 w-8 rounded-full">
+                           <img src="/images/whatsapp-icon.svg" alt="WhatsApp" class="h-8 w-8">
                             <div class="text-left text-xs">
                                 <p>Contáctanos</p>
                                 <p class="font-semibold text-sm">por WhatsApp!</p>
@@ -399,5 +399,6 @@
     </script>
 </body>
 </html>
+
 
 
