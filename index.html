@@ -45,7 +45,7 @@
     <!-- Header Section -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <!-- Mobile Header -->
-        <div class="md:hidden bg-gray-800 text-white p-2">
+        <div class="md:hidden bg-black text-white p-2">
             <div class="container mx-auto">
                 <div class="flex items-center justify-between space-x-2">
                     <!-- Mobile Menu Button -->
@@ -78,7 +78,7 @@
 
 
         <!-- Desktop Header -->
-        <div class="hidden md:block bg-gray-800 text-white relative">
+        <div class="hidden md:block bg-black text-white relative">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-3">
                     <!-- Desktop Logo and Menu -->
@@ -225,31 +225,33 @@
     <main>
         <!-- Banner Carousel -->
         <div class="md:container md:mx-auto md:pt-8">
-            <section class="banner-carousel-container w-full md:rounded-lg overflow-hidden">
-                <div class="banner-carousel-track">
-                    <div class="banner-carousel-slide">
-                        <img src="/images/banner-1-showhome.webp" alt="Banner 1" class="w-full h-auto">
+            <div class="md:w-[90%] md:mx-auto">
+                <section class="banner-carousel-container w-full md:rounded-lg overflow-hidden md:h-[45vh]">
+                    <div class="banner-carousel-track h-full">
+                        <div class="banner-carousel-slide h-full">
+                            <img src="/images/banner-1-showhome.webp" alt="Banner 1" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="banner-carousel-slide h-full">
+                            <img src="/images/banner-2-showhome.webp" alt="Banner 2" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="banner-carousel-slide h-full">
+                            <img src="/images/banner-3-showhome.webp" alt="Banner 3" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="banner-carousel-slide h-full">
+                            <img src="/images/banner-4-showhome.webp" alt="Banner 4" class="w-full h-full object-cover object-top">
+                        </div>
                     </div>
-                    <div class="banner-carousel-slide">
-                        <img src="/images/banner-2-showhome.webp" alt="Banner 2" class="w-full h-auto">
-                    </div>
-                    <div class="banner-carousel-slide">
-                        <img src="/images/banner-3-showhome.webp" alt="Banner 3" class="w-full h-auto">
-                    </div>
-                    <div class="banner-carousel-slide">
-                        <img src="/images/banner-4-showhome.webp" alt="Banner 4" class="w-full h-auto">
-                    </div>
-                </div>
-                <!-- Controls -->
-                <button id="banner-prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button id="banner-nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </button>
-                <!-- Dots -->
-                <div id="banner-dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
-            </section>
+                    <!-- Controls -->
+                    <button id="banner-prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="banner-nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                    <!-- Dots -->
+                    <div id="banner-dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+                </section>
+            </div>
         </div>
 
         <!-- Placeholder for other home page content -->
@@ -299,7 +301,7 @@
 
     </main>
     
-    <footer class="bg-gray-800 text-white mt-12">
+    <footer class="bg-black text-white mt-12">
         <div class="container mx-auto py-8 px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Categorías -->
@@ -569,5 +571,7 @@
     </script>
 </body>
 </html>
+
+
 
 
