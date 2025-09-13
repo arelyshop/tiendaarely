@@ -25,6 +25,9 @@
             min-width: 100%;
             box-sizing: border-box;
         }
+        .no-scroll {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -380,6 +383,7 @@
                 if (sidenav && sidenavOverlay) {
                     sidenav.classList.remove('-translate-x-full');
                     sidenavOverlay.classList.remove('hidden');
+                    document.body.classList.add('no-scroll');
                 }
             };
 
@@ -387,6 +391,7 @@
                 if (sidenav && sidenavOverlay) {
                     sidenav.classList.add('-translate-x-full');
                     sidenavOverlay.classList.add('hidden');
+                    document.body.classList.remove('no-scroll');
                 }
             };
 
@@ -399,6 +404,7 @@
     </script>
 </body>
 </html>
+
 
 
 
