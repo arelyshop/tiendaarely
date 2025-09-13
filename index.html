@@ -80,7 +80,7 @@
 
 
         <!-- Desktop Header -->
-        <div class="hidden md:block bg-black text-white">
+        <div class="hidden md:block bg-black text-white relative">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-3">
                     <!-- Desktop Logo and Menu -->
@@ -127,10 +127,36 @@
                     </div>
                 </div>
             </div>
+             <!-- Desktop Dropdown Menu -->
+            <div id="desktop-dropdown-menu" class="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg hidden z-40">
+                <div class="container mx-auto px-4 py-2">
+                    <nav class="grid grid-cols-1 md:grid-cols-6 gap-4 text-center items-center">
+                        <a href="index.html" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
+                        
+                        <!-- Categories Dropdown -->
+                        <div class="relative" id="desktop-categories-dropdown-container">
+                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                                <span>Categorías</span>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="desktop-categories-submenu" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Celulares (Próximamente)</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laptops (Próximamente)</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio y Video (Próximamente)</a>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
+                        <a href="#" class="block py-2 px-4 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
+                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
+                        <a href="#" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
+                    </nav>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Sidenav Menu -->
+    <!-- Sidenav Menu (For Mobile) -->
     <div id="sidenav-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300"></div>
     <div id="sidenav" class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-[70]">
         <div class="flex justify-between items-center p-4 border-b">
@@ -139,7 +165,22 @@
         </div>
         <nav class="p-4">
             <a href="index.html" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
+            
+            <!-- Mobile Categories Accordion -->
+            <div>
+                <button id="mobile-categories-btn" class="flex justify-between items-center w-full py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">
+                    <span>Categorías</span>
+                    <svg id="mobile-categories-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-categories-submenu" class="hidden pl-8">
+                    <a href="#" class="block py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Celulares (Próximamente)</a>
+                    <a href="#" class="block py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Laptops (Próximamente)</a>
+                    <a href="#" class="block py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Audio y Video (Próximamente)</a>
+                </div>
+            </div>
+
             <a href="#" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
+            <a href="#" class="block py-3 px-4 text-red-600 font-medium hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
             <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
             <a href="#" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
         </nav>
@@ -296,85 +337,69 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Carousel Logic
             const track = document.querySelector('.carousel-track');
-            if (!track) return;
+            if (track) {
+                const slides = Array.from(track.children);
+                const nextButton = document.getElementById('nextBtn');
+                const prevButton = document.getElementById('prevBtn');
+                const dotsContainer = document.getElementById('dots-container');
 
-            const slides = Array.from(track.children);
-            const nextButton = document.getElementById('nextBtn');
-            const prevButton = document.getElementById('prevBtn');
-            const dotsContainer = document.getElementById('dots-container');
+                if (slides.length > 0) {
+                    let slideWidth = slides[0].getBoundingClientRect().width;
+                    let currentIndex = 0;
 
-            if (slides.length === 0) return;
+                    const updateCarousel = () => {
+                        if(!track) return;
+                        track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                        
+                        const dots = Array.from(dotsContainer.children);
+                        dots.forEach((dot, index) => {
+                            if (index === currentIndex) {
+                                dot.classList.add('bg-white');
+                                dot.classList.remove('bg-white/50');
+                            } else {
+                                dot.classList.remove('bg-white');
+                                dot.classList.add('bg-white/50');
+                            }
+                        });
+                    };
+                    
+                    function handleResize() {
+                        slideWidth = slides[0].getBoundingClientRect().width;
+                        updateCarousel();
+                    }
 
-            let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-            
-            let currentIndex = 0;
+                    window.addEventListener('resize', handleResize);
 
-            function handleResize() {
-                slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
-                updateCarousel();
+                    // Create dots
+                    slides.forEach((slide, index) => {
+                        const dot = document.createElement('button');
+                        dot.classList.add('h-2', 'w-2', 'rounded-full', 'bg-white/50', 'transition');
+                        if (index === 0) dot.classList.add('bg-white');
+                        dot.addEventListener('click', () => {
+                            currentIndex = index;
+                            updateCarousel();
+                        });
+                        dotsContainer.appendChild(dot);
+                    });
+
+                    prevButton.addEventListener('click', e => {
+                        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                        updateCarousel();
+                    });
+
+                    nextButton.addEventListener('click', e => {
+                        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                        updateCarousel();
+                    });
+
+                    setInterval(() => {
+                        if (nextButton) nextButton.click();
+                    }, 5000);
+                }
             }
 
-            window.addEventListener('resize', handleResize);
-
-
-            // Create dots
-            slides.forEach((slide, index) => {
-                const dot = document.createElement('button');
-                dot.classList.add('h-2', 'w-2', 'rounded-full', 'bg-white/50', 'transition');
-                if (index === 0) {
-                    dot.classList.add('bg-white');
-                }
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarousel();
-                });
-                dotsContainer.appendChild(dot);
-            });
-            
-            const dots = Array.from(dotsContainer.children);
-
-            const updateCarousel = () => {
-                if(!track) return;
-                track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
-                dots.forEach((dot, index) => {
-                    if (index === currentIndex) {
-                        dot.classList.add('bg-white');
-                        dot.classList.remove('bg-white/50');
-                    } else {
-                        dot.classList.remove('bg-white');
-                        dot.classList.add('bg-white/50');
-                    }
-                });
-            };
-
-            // When I click left, move slides to the left
-            prevButton.addEventListener('click', e => {
-                currentIndex--;
-                if (currentIndex < 0) {
-                    currentIndex = slides.length - 1;
-                }
-                updateCarousel();
-            });
-
-            // When I click right, move slides to the right
-            nextButton.addEventListener('click', e => {
-                currentIndex++;
-                if (currentIndex >= slides.length) {
-                    currentIndex = 0;
-                }
-                updateCarousel();
-            });
-
-            // Autoplay
-            setInterval(() => {
-                if(nextButton) {
-                   nextButton.click();
-                }
-            }, 5000); // Change slide every 5 seconds
-
-            // Sidenav Logic
+            // --- Mobile Sidenav Logic ---
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const desktopMenuBtn = document.getElementById('desktop-menu-btn');
             const sidenav = document.getElementById('sidenav');
             const sidenavOverlay = document.getElementById('sidenav-overlay');
             const closeSidenavBtn = document.getElementById('close-sidenav');
@@ -396,15 +421,55 @@
             };
 
             if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSidenav);
-            if (desktopMenuBtn) desktopMenuBtn.addEventListener('click', openSidenav);
             if (closeSidenavBtn) closeSidenavBtn.addEventListener('click', closeSidenav);
             if (sidenavOverlay) sidenavOverlay.addEventListener('click', closeSidenav);
-        });
 
+            // Mobile categories accordion
+            const mobileCategoriesBtn = document.getElementById('mobile-categories-btn');
+            const mobileCategoriesSubmenu = document.getElementById('mobile-categories-submenu');
+            const mobileCategoriesArrow = document.getElementById('mobile-categories-arrow');
+
+            if (mobileCategoriesBtn && mobileCategoriesSubmenu && mobileCategoriesArrow) {
+                mobileCategoriesBtn.addEventListener('click', () => {
+                    mobileCategoriesSubmenu.classList.toggle('hidden');
+                    mobileCategoriesArrow.classList.toggle('rotate-180');
+                });
+            }
+
+            // --- Desktop Dropdown Logic ---
+            const desktopMenuBtn = document.getElementById('desktop-menu-btn');
+            const desktopDropdown = document.getElementById('desktop-dropdown-menu');
+            const desktopCategoriesContainer = document.getElementById('desktop-categories-dropdown-container');
+            const desktopCategoriesSubmenu = document.getElementById('desktop-categories-submenu');
+
+
+            if (desktopMenuBtn && desktopDropdown) {
+                desktopMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    desktopDropdown.classList.toggle('hidden');
+                });
+            }
+
+            // Handle categories dropdown on hover for desktop
+            if (desktopCategoriesContainer && desktopCategoriesSubmenu) {
+                desktopCategoriesContainer.addEventListener('mouseenter', () => {
+                    desktopCategoriesSubmenu.classList.remove('hidden');
+                });
+                desktopCategoriesContainer.addEventListener('mouseleave', () => {
+                    desktopCategoriesSubmenu.classList.add('hidden');
+                });
+            }
+
+            // Close main dropdown when clicking anywhere else on the page
+            document.addEventListener('click', (e) => {
+                if (desktopDropdown && !desktopDropdown.classList.contains('hidden')) {
+                    if (!desktopDropdown.contains(e.target) && !desktopMenuBtn.contains(e.target)) {
+                        desktopDropdown.classList.add('hidden');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
-
-
 
