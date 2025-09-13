@@ -14,15 +14,15 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        .carousel-container {
+        .banner-carousel-container {
             overflow: hidden;
             position: relative;
         }
-        .carousel-track {
+        .banner-carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        .carousel-slide {
+        .banner-carousel-slide {
             min-width: 100%;
             box-sizing: border-box;
         }
@@ -225,30 +225,30 @@
     <main>
         <!-- Banner Carousel -->
         <div class="md:container md:mx-auto md:pt-8">
-            <section class="carousel-container w-full md:rounded-lg overflow-hidden">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="/images/banner-1.webp" alt="Banner 1" class="w-full h-auto">
+            <section class="banner-carousel-container w-full md:rounded-lg overflow-hidden">
+                <div class="banner-carousel-track">
+                    <div class="banner-carousel-slide">
+                        <img src="/images/banner-1-showhome.webp" alt="Banner 1" class="w-full h-auto">
                     </div>
-                    <div class="carousel-slide">
-                        <img src="/images/banner-2.webp" alt="Banner 2" class="w-full h-auto">
+                    <div class="banner-carousel-slide">
+                        <img src="/images/banner-2-showhome.webp" alt="Banner 2" class="w-full h-auto">
                     </div>
-                    <div class="carousel-slide">
-                        <img src="/images/banner-3.webp" alt="Banner 3" class="w-full h-auto">
+                    <div class="banner-carousel-slide">
+                        <img src="/images/banner-3-showhome.webp" alt="Banner 3" class="w-full h-auto">
                     </div>
-                    <div class="carousel-slide">
-                        <img src="/images/banner-4.webp" alt="Banner 4" class="w-full h-auto">
+                    <div class="banner-carousel-slide">
+                        <img src="/images/banner-4-showhome.webp" alt="Banner 4" class="w-full h-auto">
                     </div>
                 </div>
                 <!-- Controls -->
-                <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
+                <button id="banner-prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
+                <button id="banner-nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                 </button>
                 <!-- Dots -->
-                <div id="dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+                <div id="banner-dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
             </section>
         </div>
 
@@ -363,23 +363,23 @@
                 yearSpan.textContent = new Date().getFullYear();
             }
 
-            // Carousel Logic
-            const track = document.querySelector('.carousel-track');
-            if (track) {
-                const slides = Array.from(track.children);
-                const nextButton = document.getElementById('nextBtn');
-                const prevButton = document.getElementById('prevBtn');
-                const dotsContainer = document.getElementById('dots-container');
+            // Banner Carousel Logic
+            const bannerTrack = document.querySelector('.banner-carousel-track');
+            if (bannerTrack) {
+                const bannerSlides = Array.from(bannerTrack.children);
+                const bannerNextButton = document.getElementById('banner-nextBtn');
+                const bannerPrevButton = document.getElementById('banner-prevBtn');
+                const bannerDotsContainer = document.getElementById('banner-dots-container');
 
-                if (slides.length > 0) {
-                    let slideWidth = slides[0].getBoundingClientRect().width;
+                if (bannerSlides.length > 0) {
+                    let slideWidth = bannerSlides[0].getBoundingClientRect().width;
                     let currentIndex = 0;
 
                     const updateCarousel = () => {
-                        if(!track) return;
-                        track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                        if(!bannerTrack) return;
+                        bannerTrack.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
                         
-                        const dots = Array.from(dotsContainer.children);
+                        const dots = Array.from(bannerDotsContainer.children);
                         dots.forEach((dot, index) => {
                             if (index === currentIndex) {
                                 dot.classList.add('bg-white');
@@ -392,13 +392,13 @@
                     };
                     
                     function handleResize() {
-                        slideWidth = slides[0].getBoundingClientRect().width;
+                        slideWidth = bannerSlides[0].getBoundingClientRect().width;
                         updateCarousel();
                     }
 
                     window.addEventListener('resize', handleResize);
 
-                    slides.forEach((slide, index) => {
+                    bannerSlides.forEach((slide, index) => {
                         const dot = document.createElement('button');
                         dot.classList.add('h-2', 'w-2', 'rounded-full', 'bg-white/50', 'transition');
                         if (index === 0) dot.classList.add('bg-white');
@@ -406,21 +406,21 @@
                             currentIndex = index;
                             updateCarousel();
                         });
-                        dotsContainer.appendChild(dot);
+                        bannerDotsContainer.appendChild(dot);
                     });
 
-                    prevButton.addEventListener('click', e => {
-                        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                    bannerPrevButton.addEventListener('click', e => {
+                        currentIndex = (currentIndex === 0) ? bannerSlides.length - 1 : currentIndex - 1;
                         updateCarousel();
                     });
 
-                    nextButton.addEventListener('click', e => {
-                        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                    bannerNextButton.addEventListener('click', e => {
+                        currentIndex = (currentIndex === bannerSlides.length - 1) ? 0 : currentIndex + 1;
                         updateCarousel();
                     });
 
                     setInterval(() => {
-                        if (nextButton) nextButton.click();
+                        if (bannerNextButton) bannerNextButton.click();
                     }, 5000);
                 }
             }
