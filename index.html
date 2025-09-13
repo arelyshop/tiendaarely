@@ -139,7 +139,7 @@
                                 <span>Categorías</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div id="desktop-categories-submenu" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
+                            <div id="desktop-categories-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Celulares (Próximamente)</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laptops (Próximamente)</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio y Video (Próximamente)</a>
@@ -160,8 +160,11 @@
     <div id="sidenav-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300"></div>
     <div id="sidenav" class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-[70]">
         <div class="flex justify-between items-center p-4 border-b">
-            <h2 class="text-xl font-bold">Menú</h2>
-            <button id="close-sidenav" class="text-gray-600 hover:text-gray-900 text-3xl">&times;</button>
+            <h2 class="text-xl font-bold">MENÚ</h2>
+            <button id="close-sidenav" class="bg-black text-[#e3e3e3] flex items-center py-1 px-2 rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                <span class="ml-2 text-sm font-semibold">CERRAR</span>
+            </button>
         </div>
         <nav class="p-4">
             <a href="index.html" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
@@ -472,4 +475,6 @@
     </script>
 </body>
 </html>
+
+
 
