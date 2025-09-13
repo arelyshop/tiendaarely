@@ -502,13 +502,14 @@
             const closeSidenavBtn = document.getElementById('close-sidenav');
 
             function adjustSidenavPosition() {
-                const promoBanner = document.getElementById('promo-banner');
                 const header = document.querySelector('header');
                 if (!header || !sidenav) return;
 
-                const bannerHeight = (promoBanner && promoBanner.style.display !== 'none') ? promoBanner.offsetHeight : 0;
-                const headerHeight = header.offsetHeight;
-                const totalTopOffset = bannerHeight + headerHeight;
+                // Get the position of the sticky header relative to the viewport
+                const headerRect = header.getBoundingClientRect();
+                
+                // The menu should start right below the bottom of the header
+                const totalTopOffset = headerRect.bottom;
 
                 sidenav.style.top = `${totalTopOffset}px`;
                 sidenav.style.height = `calc(100vh - ${totalTopOffset}px)`;
@@ -614,4 +615,5 @@
     </script>
 </body>
 </html>
+
 
