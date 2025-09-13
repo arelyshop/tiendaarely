@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -156,7 +157,6 @@
                                 <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ANKER</a>
                                 <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BELKIN</a>
                                 <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ORICO</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">GENERAL</a>
                             </div>
                         </div>
 
@@ -212,7 +212,6 @@
                     <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">ANKER</a>
                     <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">BELKIN</a>
                     <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">ORICO</a>
-                    <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">GENERAL</a>
                 </div>
             </div>
             
@@ -287,6 +286,33 @@
             </div>
         </section>
 
+        <!-- Brands Slideshow -->
+        <section class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Nuestras Marcas</h2>
+                <div class="swiper-container brands-swiper overflow-hidden">
+                    <div class="swiper-wrapper flex items-center">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="https://dcdn-us.mitiendanube.com/stores/004/546/736/themes/amazonas/2-slide-1720336567513-3047606013-1a3c0c4ea2bfa2b98bc4cafb0a3912011720336566-480-0.webp?1734538152" alt="UGREEN" class="mx-auto h-16 w-auto object-contain">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://dcdn-us.mitiendanube.com/stores/004/546/736/themes/amazonas/2-slide-1720336567513-7199085254-5632c1c722b90b62283e7abc508cf5d31720336567-480-0.webp?1734538152" alt="BASEUS" class="mx-auto h-16 w-auto object-contain">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://dcdn-us.mitiendanube.com/stores/004/546/736/themes/amazonas/2-slide-1720336567513-8047103935-c7f2f831198f6c07b238f0d5973047b61720336568-480-0.webp?1734538152" alt="ANKER" class="mx-auto h-16 w-auto object-contain">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://dcdn-us.mitiendanube.com/stores/004/546/736/themes/amazonas/2-slide-1720336567513-477961222-80edf5f398928fcabde72ef0ffd1b4401720336569-480-0.webp?1734538152" alt="BELKIN" class="mx-auto h-16 w-auto object-contain">
+                        </div>
+                        <div class="swiper-slide">
+                           <img src="https://dcdn-us.mitiendanube.com/stores/004/546/736/themes/amazonas/2-slide-1720336567513-233995847-b3ad148d329fa48b1ae153a00d8c8fea1720336570-480-0.webp?1734538152" alt="ORICO" class="mx-auto h-16 w-auto object-contain">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     
     <footer class="bg-gray-800 text-white mt-12">
@@ -344,7 +370,7 @@
         </div>
     </footer>
 
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Set current year in footer
@@ -414,6 +440,31 @@
                     }, 5000);
                 }
             }
+
+            // --- Brands Swiper ---
+            const swiper = new Swiper('.brands-swiper', {
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                slidesPerView: 2,
+                spaceBetween: 20,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 50,
+                    },
+                },
+            });
 
             // --- Sidenav Logic ---
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -534,5 +585,4 @@
     </script>
 </body>
 </html>
-
 
