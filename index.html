@@ -217,7 +217,7 @@
             <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
             <a href="#" class="block py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
         </nav>
-        <div class="p-4 pb-10 border-t flex-shrink-0">
+        <div class="p-4 border-t flex-shrink-0">
             <h3 class="font-medium text-gray-800 mb-3 text-center">¡Síguenos en Redes!</h3>
             <div class="flex space-x-4 justify-center">
                 <a href="https://instagram.com/arelyshopbo" target="_blank" class="text-gray-700 hover:text-black">
@@ -527,15 +527,13 @@
             function adjustSidenavPosition() {
                 const header = document.querySelector('header');
                 if (!header || !sidenav) return;
-
-                // Get the position of the sticky header relative to the viewport
-                const headerRect = header.getBoundingClientRect();
                 
-                // The menu should start right below the bottom of the header
+                const headerRect = header.getBoundingClientRect();
                 const totalTopOffset = headerRect.bottom;
+                const availableHeight = window.innerHeight - totalTopOffset;
 
                 sidenav.style.top = `${totalTopOffset}px`;
-                sidenav.style.height = `calc(100vh - ${totalTopOffset}px)`;
+                sidenav.style.height = `${availableHeight}px`;
             }
 
             const openSidenav = () => {
