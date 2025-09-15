@@ -24,6 +24,15 @@
             min-width: 100%;
             box-sizing: border-box;
         }
+        /* Animation for Desktop Dropdown */
+        #desktop-dropdown-menu {
+            transition: max-height 0.4s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+        }
+        #desktop-dropdown-menu.menu-open {
+            max-height: 100px; /* Adjust if menu content becomes taller */
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -124,7 +133,7 @@
                 </div>
             </div>
              <!-- Desktop Dropdown Menu -->
-            <div id="desktop-dropdown-menu" class="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg hidden z-40">
+            <div id="desktop-dropdown-menu" class="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg z-40">
                 <div class="container mx-auto px-4 py-2">
                     <nav class="grid grid-cols-1 md:grid-cols-8 gap-4 text-center items-center">
                         <a href="index.html" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
@@ -623,13 +632,13 @@
             if (desktopMenuBtn && desktopDropdown) {
                 desktopMenuBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    desktopDropdown.classList.toggle('hidden');
+                    desktopDropdown.classList.toggle('menu-open');
                 });
             }
 
             if(desktopCloseBtn && desktopDropdown) {
                 desktopCloseBtn.addEventListener('click', () => {
-                    desktopDropdown.classList.add('hidden');
+                    desktopDropdown.classList.remove('menu-open');
                 });
             }
 
