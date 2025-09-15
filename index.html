@@ -125,13 +125,13 @@
         <div class="hidden md:block bg-[#87e64b] shadow-md">
             <div class="container mx-auto">
                 <div class="md:w-[85%] md:mx-auto">
-                    <nav class="grid grid-cols-7 gap-2 text-center items-center py-1">
-                        <a href="index.html" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
-                        <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
+                    <nav class="grid grid-cols-7 gap-2 text-center items-center py-0.5">
+                        <a href="index.html" class="block py-1 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
+                        <a href="#" class="block py-1 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
                         
                         <!-- Categories Dropdown -->
                         <div class="relative" id="desktop-categories-dropdown-container">
-                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
                                 <span>Categorías</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1F2937"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                             </button>
@@ -144,7 +144,7 @@
 
                         <!-- Marcas Dropdown -->
                         <div class="relative" id="desktop-marcas-dropdown-container">
-                            <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                            <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
                                 <span>Marcas</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1F2937"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                             </button>
@@ -157,9 +157,9 @@
                             </div>
                         </div>
 
-                        <a href="#" class="block py-1.5 px-2 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
-                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
-                        <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
+                        <a href="#" class="block py-1 px-2 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
+                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
+                        <a href="#" class="block py-1 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
                     </nav>
                 </div>
             </div>
@@ -236,165 +236,23 @@
 
     <!-- Main Content -->
     <main>
-        <div class="container mx-auto p-4 md:p-0">
+        <div class="container mx-auto">
             <div class="md:w-[85%] md:mx-auto">
-
                 <!-- Banner Carousel -->
                 <section class="banner-carousel-container w-full md:rounded-lg overflow-hidden md:mt-8">
-                    <div class="banner-carousel-track">
-                        <div class="banner-carousel-slide">
-                            <img src="/images/banner-1-showhome.webp" alt="Banner 1" class="w-full h-auto">
-                        </div>
-                        <div class="banner-carousel-slide">
-                            <img src="/images/banner-2-showhome.webp" alt="Banner 2" class="w-full h-auto">
-                        </div>
-                        <div class="banner-carousel-slide">
-                            <img src="/images/banner-3-showhome.webp" alt="Banner 3" class="w-full h-auto">
-                        </div>
-                        <div class="banner-carousel-slide">
-                            <img src="/images/banner-4-showhome.webp" alt="Banner 4" class="w-full h-auto">
-                        </div>
-                    </div>
-                    <!-- Controls -->
-                    <button id="banner-prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    </button>
-                    <button id="banner-nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow-md transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                    <!-- Dots -->
-                    <div id="banner-dots-container" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+                    <!-- Carousel HTML here -->
                 </section>
-
-                <!-- Productos Destacados -->
-                <section class="mt-8">
-                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Productos Destacados</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
-                        <!-- Product Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Cargador Rápido 65W</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 150.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 2 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Hub USB-C 7 en 1</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 250.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 3 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Soporte para Laptop</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 120.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 4 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Audífonos Bluetooth</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 300.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 5 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Cable HDMI 8K</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 80.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 6 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Teclado Mecánico</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 450.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 7 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Mouse Inalámbrico</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 180.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 8 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Power Bank 20000mAh</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 280.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 9 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Lámpara de Escritorio</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 95.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Product Card 10 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden group">
-                            <a href="#" class="block">
-                                <div class="aspect-square overflow-hidden">
-                                    <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                                </div>
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-800">Webcam Full HD</h3>
-                                    <p class="text-gray-600 mt-2">Bs. 220.00</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
             </div>
         </div>
+        
+        <section class="container mx-auto px-4 md:px-0 mt-8">
+            <div class="md:w-[85%] md:mx-auto">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Productos Destacados</h2>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <!-- Product Cards HTML here -->
+                </div>
+            </div>
+        </section>
     </main>
     
     <footer class="bg-black text-white mt-12">
@@ -633,4 +491,3 @@
     </script>
 </body>
 </html>
-
