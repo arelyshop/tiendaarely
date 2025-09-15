@@ -26,12 +26,13 @@
         }
         /* Animation for Desktop Dropdown */
         #desktop-dropdown-menu {
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease-in-out;
             overflow: hidden;
             max-height: 0;
         }
         #desktop-dropdown-menu.menu-open {
-            max-height: 70px; /* Controls the slide-down height */
+            max-height: 80px; /* Adjust if menu content becomes taller */
+            overflow: visible; /* Allow submenus to show */
         }
     </style>
 </head>
@@ -134,47 +135,49 @@
             </div>
              <!-- Desktop Dropdown Menu -->
             <div id="desktop-dropdown-menu" class="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg z-40">
-                <div class="container mx-auto px-4 py-1.5">
-                    <nav class="grid grid-cols-1 md:grid-cols-8 gap-4 text-center items-center">
-                        <a href="index.html" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
-                        <a href="#" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
-                        
-                        <!-- Categories Dropdown -->
-                        <div class="relative" id="desktop-categories-dropdown-container">
-                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
-                                <span>Categorías</span>
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div id="desktop-categories-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Celulares (Próximamente)</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laptops (Próximamente)</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio y Video (Próximamente)</a>
+                <div class="container mx-auto px-4">
+                    <div class="md:w-[85%] md:mx-auto">
+                        <nav class="grid grid-cols-1 md:grid-cols-8 gap-2 text-center items-center py-1.5">
+                            <a href="index.html" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
+                            <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
+                            
+                            <!-- Categories Dropdown -->
+                            <div class="relative" id="desktop-categories-dropdown-container">
+                                <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                                    <span>Categorías</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </button>
+                                <div id="desktop-categories-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Celulares (Próximamente)</a>
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laptops (Próximamente)</a>
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio y Video (Próximamente)</a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Marcas Dropdown -->
-                        <div class="relative" id="desktop-marcas-dropdown-container">
-                            <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
-                                <span>Marcas</span>
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div id="desktop-marcas-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">UGREEN</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BASEUS</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ANKER</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BELKIN</a>
-                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ORICO</a>
+                            <!-- Marcas Dropdown -->
+                            <div class="relative" id="desktop-marcas-dropdown-container">
+                                <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                                    <span>Marcas</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </button>
+                                <div id="desktop-marcas-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">UGREEN</a>
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BASEUS</a>
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ANKER</a>
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BELKIN</a>
+                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ORICO</a>
+                                </div>
                             </div>
-                        </div>
 
-                        <a href="#" class="block py-1.5 px-3 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
-                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
-                        <a href="#" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
-                        <button id="desktop-close-menu-btn" class="flex flex-col items-center justify-center w-full py-1 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 -960 960 960" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"></path></svg>
-                            <span class="text-[0.54rem] font-semibold -mt-1">CERRAR</span>
-                        </button>
-                    </nav>
+                            <a href="#" class="block py-1.5 px-2 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
+                            <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
+                            <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
+                            <button id="desktop-close-menu-btn" class="flex flex-col items-center justify-center w-full py-1 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 -960 960 960" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"></path></svg>
+                                <span class="text-[0.54rem] font-semibold -mt-1">CERRAR</span>
+                            </button>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,7 +201,7 @@
             <div>
                 <button id="mobile-categories-btn" class="flex justify-between items-center w-full py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">
                     <span>Categorías</span>
-                    <svg id="mobile-categories-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg id="mobile-categories-arrow" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                 </button>
                 <div id="mobile-categories-submenu" class="hidden pl-8">
                     <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">Celulares (Próximamente)</a>
@@ -211,7 +214,7 @@
             <div>
                 <button id="mobile-marcas-btn" class="flex justify-between items-center w-full py-3 px-4 text-gray-700 font-medium hover:bg-gray-100 rounded-lg transition-colors">
                     <span>Marcas</span>
-                    <svg id="mobile-marcas-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg id="mobile-marcas-arrow" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                 </button>
                 <div id="mobile-marcas-submenu" class="hidden pl-8">
                     <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">UGREEN</a>
