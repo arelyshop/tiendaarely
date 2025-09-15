@@ -24,16 +24,6 @@
             min-width: 100%;
             box-sizing: border-box;
         }
-        /* Animation for Desktop Dropdown */
-        #desktop-dropdown-menu {
-            transition: max-height 0.4s ease-in-out;
-            overflow: hidden;
-            max-height: 0;
-        }
-        #desktop-dropdown-menu.menu-open {
-            max-height: 80px; /* Adjust if menu content becomes taller */
-            overflow: visible; /* Allow submenus to show */
-        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -86,15 +76,11 @@
 
 
         <!-- Desktop Header -->
-        <div class="hidden md:block bg-black text-white relative">
+        <div class="hidden md:block bg-black text-white">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-3">
-                    <!-- Desktop Logo and Menu -->
+                    <!-- Desktop Logo -->
                     <div class="flex items-center space-x-4">
-                        <button id="desktop-menu-btn" class="flex items-center space-x-2 p-2 rounded-md hover:bg-white/20 transition">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 -960 960 960" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-                            <span class="font-semibold text-sm">MENÚ</span>
-                        </button>
                         <a href="index.html">
                             <img src="/images/logo-escritorio.svg" alt="Arelyshop" class="h-10 w-auto">
                         </a>
@@ -133,51 +119,48 @@
                     </div>
                 </div>
             </div>
-             <!-- Desktop Dropdown Menu -->
-            <div id="desktop-dropdown-menu" class="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg z-40">
-                <div class="container mx-auto px-4">
-                    <div class="md:w-[85%] md:mx-auto">
-                        <nav class="grid grid-cols-1 md:grid-cols-8 gap-2 text-center items-center py-1.5">
-                            <a href="index.html" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
-                            <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
-                            
-                            <!-- Categories Dropdown -->
-                            <div class="relative" id="desktop-categories-dropdown-container">
-                                <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
-                                    <span>Categorías</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </button>
-                                <div id="desktop-categories-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Celulares (Próximamente)</a>
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laptops (Próximamente)</a>
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio y Video (Próximamente)</a>
-                                </div>
-                            </div>
-
-                            <!-- Marcas Dropdown -->
-                            <div class="relative" id="desktop-marcas-dropdown-container">
-                                <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
-                                    <span>Marcas</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </button>
-                                <div id="desktop-marcas-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">UGREEN</a>
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BASEUS</a>
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ANKER</a>
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BELKIN</a>
-                                    <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ORICO</a>
-                                </div>
-                            </div>
-
-                            <a href="#" class="block py-1.5 px-2 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
-                            <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
-                            <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
-                            <button id="desktop-close-menu-btn" class="flex flex-col items-center justify-center w-full py-1 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 -960 960 960" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"></path></svg>
-                                <span class="text-[0.54rem] font-semibold -mt-1">CERRAR</span>
+        </div>
+        
+        <!-- Desktop Static Nav Bar -->
+        <div class="hidden md:block bg-[#87e64b] shadow-md">
+            <div class="container mx-auto">
+                <div class="md:w-[85%] md:mx-auto">
+                    <nav class="grid grid-cols-7 gap-2 text-center items-center py-1">
+                        <a href="index.html" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
+                        <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
+                        
+                        <!-- Categories Dropdown -->
+                        <div class="relative" id="desktop-categories-dropdown-container">
+                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                                <span>Categorías</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1F2937"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                             </button>
-                        </nav>
-                    </div>
+                            <div id="desktop-categories-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Celulares (Próximamente)</a>
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laptops (Próximamente)</a>
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio y Video (Próximamente)</a>
+                            </div>
+                        </div>
+
+                        <!-- Marcas Dropdown -->
+                        <div class="relative" id="desktop-marcas-dropdown-container">
+                            <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                                <span>Marcas</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1F2937"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                            </button>
+                            <div id="desktop-marcas-submenu" class="absolute left-0 top-full pt-2 w-48 bg-white rounded-md shadow-lg hidden z-50 text-left">
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">UGREEN</a>
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BASEUS</a>
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ANKER</a>
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BELKIN</a>
+                                <a href="#" class="block pl-6 pr-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ORICO</a>
+                            </div>
+                        </div>
+
+                        <a href="#" class="block py-1.5 px-2 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
+                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
+                        <a href="#" class="block py-1.5 px-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -623,27 +606,10 @@
             }
 
             // --- Desktop Dropdown Logic ---
-            const desktopMenuBtn = document.getElementById('desktop-menu-btn');
-            const desktopDropdown = document.getElementById('desktop-dropdown-menu');
             const desktopCategoriesContainer = document.getElementById('desktop-categories-dropdown-container');
             const desktopCategoriesSubmenu = document.getElementById('desktop-categories-submenu');
             const desktopMarcasContainer = document.getElementById('desktop-marcas-dropdown-container');
             const desktopMarcasSubmenu = document.getElementById('desktop-marcas-submenu');
-            const desktopCloseBtn = document.getElementById('desktop-close-menu-btn');
-
-
-            if (desktopMenuBtn && desktopDropdown) {
-                desktopMenuBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    desktopDropdown.classList.toggle('menu-open');
-                });
-            }
-
-            if(desktopCloseBtn && desktopDropdown) {
-                desktopCloseBtn.addEventListener('click', () => {
-                    desktopDropdown.classList.remove('menu-open');
-                });
-            }
 
             if (desktopCategoriesContainer && desktopCategoriesSubmenu) {
                 desktopCategoriesContainer.addEventListener('mouseenter', () => {
