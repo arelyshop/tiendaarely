@@ -26,12 +26,12 @@
         }
         /* Animation for Desktop Dropdown */
         #desktop-dropdown-menu {
-            transition: max-height 0.4s ease-in-out;
+            transition: max-height 0.3s ease-out;
             overflow: hidden;
             max-height: 0;
         }
         #desktop-dropdown-menu.menu-open {
-            max-height: 100px; /* Adjust if menu content becomes taller */
+            max-height: 70px; /* Controls the slide-down height */
         }
     </style>
 </head>
@@ -134,14 +134,14 @@
             </div>
              <!-- Desktop Dropdown Menu -->
             <div id="desktop-dropdown-menu" class="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg z-40">
-                <div class="container mx-auto px-4 py-2">
+                <div class="container mx-auto px-4 py-1.5">
                     <nav class="grid grid-cols-1 md:grid-cols-8 gap-4 text-center items-center">
-                        <a href="index.html" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
-                        <a href="#" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
+                        <a href="index.html" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Inicio</a>
+                        <a href="#" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Ver Catálogo</a>
                         
                         <!-- Categories Dropdown -->
                         <div class="relative" id="desktop-categories-dropdown-container">
-                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                            <button id="desktop-categories-btn" class="flex items-center justify-center w-full py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
                                 <span>Categorías</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
@@ -154,7 +154,7 @@
 
                         <!-- Marcas Dropdown -->
                         <div class="relative" id="desktop-marcas-dropdown-container">
-                            <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
+                            <button id="desktop-marcas-btn" class="flex items-center justify-center w-full py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
                                 <span>Marcas</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
@@ -167,9 +167,9 @@
                             </div>
                         </div>
 
-                        <a href="#" class="block py-2 px-4 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
-                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
-                        <a href="#" class="block py-2 px-4 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
+                        <a href="#" class="block py-1.5 px-3 text-red-600 font-semibold hover:bg-gray-100 rounded-lg transition-colors">OFERTAS</a>
+                        <a href="https://wa.me/59167500044" target="_blank" rel="noopener noreferrer" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">WhatsApp</a>
+                        <a href="#" class="block py-1.5 px-3 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">Contacto</a>
                         <button id="desktop-close-menu-btn" class="flex flex-col items-center justify-center w-full py-1 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 -960 960 960" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"></path></svg>
                             <span class="text-[0.54rem] font-semibold -mt-1">CERRAR</span>
