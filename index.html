@@ -249,7 +249,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Main Content -->
     <main>
         <div class="md:container md:mx-auto">
@@ -464,8 +464,8 @@
     </main>
 
     <!-- Floating Cart -->
-    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"></div>
-    <div id="cart-flyout" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:z-50"></div>
+    <div id="cart-flyout" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-40 md:z-50 flex flex-col">
         <!-- Cart Header -->
         <div class="flex justify-between items-center p-4 border-b flex-shrink-0">
             <h2 class="text-xl font-bold">Mi Carrito</h2>
@@ -584,28 +584,34 @@
 
             const isMobile = () => window.innerWidth < 768;
 
-            function adjustCartPositionOnMobile() {
+            function adjustFlyoutPosition(flyoutEl, overlayEl) {
                 const header = document.querySelector('header');
-                if (!header || !cartFlyout) return;
+                if (!header || !flyoutEl) return;
                 
                 const headerRect = header.getBoundingClientRect();
                 const totalTopOffset = headerRect.bottom;
                 const availableHeight = window.innerHeight - totalTopOffset;
 
-                cartFlyout.style.top = `${totalTopOffset}px`;
-                cartFlyout.style.height = `${availableHeight}px`;
+                flyoutEl.style.top = `${totalTopOffset}px`;
+                flyoutEl.style.height = `${availableHeight}px`;
+                if (overlayEl) {
+                    overlayEl.style.top = `${totalTopOffset}px`;
+                    overlayEl.style.height = `${availableHeight}px`;
+                }
             }
 
             const openCart = () => {
                 if (isMobile()) {
                     cartFlyout.classList.remove('max-w-sm');
                     cartFlyout.classList.add('w-72');
-                    adjustCartPositionOnMobile();
+                    adjustFlyoutPosition(cartFlyout, cartOverlay);
                 } else {
                     cartFlyout.classList.remove('w-72');
                     cartFlyout.classList.add('max-w-sm');
                     cartFlyout.style.top = '';
                     cartFlyout.style.height = '';
+                    cartOverlay.style.top = '';
+                    cartOverlay.style.height = '';
                 }
                 
                 cartFlyout.classList.remove('translate-x-full');
@@ -616,6 +622,26 @@
             const closeCart = () => {
                 cartFlyout.classList.add('translate-x-full');
                 cartOverlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            };
+            
+            // --- Sidenav Logic ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const sidenav = document.getElementById('sidenav');
+            const sidenavOverlay = document.getElementById('sidenav-overlay');
+            const closeSidenavBtn = document.getElementById('close-sidenav');
+
+
+            const openSidenav = () => {
+                adjustFlyoutPosition(sidenav, sidenavOverlay);
+                sidenav.classList.remove('-translate-x-full');
+                sidenavOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeSidenav = () => {
+                sidenav.classList.add('-translate-x-full');
+                sidenavOverlay.classList.add('hidden');
                 document.body.style.overflow = '';
             };
 
@@ -741,12 +767,12 @@
                         });
                     };
                     
-                    function handleResize() {
+                    function handleResizeCarousel() {
                         slideWidth = bannerSlides[0].getBoundingClientRect().width;
                         updateCarousel();
                     }
 
-                    window.addEventListener('resize', handleResize);
+                    window.addEventListener('resize', handleResizeCarousel);
 
                     bannerSlides.forEach((slide, index) => {
                         const dot = document.createElement('button');
@@ -773,56 +799,6 @@
                         if (bannerNextButton) bannerNextButton.click();
                     }, 5000);
                 }
-            }
-
-            // --- Sidenav Logic ---
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const sidenav = document.getElementById('sidenav');
-            const sidenavOverlay = document.getElementById('sidenav-overlay');
-            const closeSidenavBtn = document.getElementById('close-sidenav');
-
-            function adjustSidenavPosition() {
-                const header = document.querySelector('header');
-                if (!header || !sidenav) return;
-                
-                const headerRect = header.getBoundingClientRect();
-                const totalTopOffset = headerRect.bottom;
-                const availableHeight = window.innerHeight - totalTopOffset;
-
-                sidenav.style.top = `${totalTopOffset}px`;
-                sidenav.style.height = `${availableHeight}px`;
-            }
-
-            const openSidenav = () => {
-                adjustSidenavPosition();
-                if (sidenav && sidenavOverlay) {
-                    sidenav.classList.remove('-translate-x-full');
-                    sidenavOverlay.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                }
-            };
-
-            const closeSidenav = () => {
-                if (sidenav && sidenavOverlay) {
-                    sidenav.classList.add('-translate-x-full');
-                    sidenavOverlay.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
-            };
-
-            adjustSidenavPosition(); // Initial position adjustment
-
-            const promoBannerCloseBtn = document.querySelector('#promo-banner button');
-            if (promoBannerCloseBtn) {
-                promoBannerCloseBtn.addEventListener('click', () => {
-                    setTimeout(() => {
-                        adjustSidenavPosition();
-                        const isCartOpen = !cartOverlay.classList.contains('hidden');
-                        if (isCartOpen && isMobile()) {
-                            adjustCartPositionOnMobile();
-                        }
-                    }, 50); 
-                });
             }
             
             if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSidenav);
@@ -877,21 +853,43 @@
                 });
             }
             
+             // --- Promo Banner Logic ---
+            const promoBannerCloseBtn = document.querySelector('#promo-banner button');
+            if (promoBannerCloseBtn) {
+                promoBannerCloseBtn.addEventListener('click', () => {
+                    // Use a short timeout to ensure the banner is removed from layout calculation
+                    setTimeout(() => {
+                        const isCartOpen = !cartOverlay.classList.contains('hidden');
+                        const isSidenavOpen = !sidenavOverlay.classList.contains('hidden');
+                        if (isCartOpen && isMobile()) {
+                            adjustFlyoutPosition(cartFlyout, cartOverlay);
+                        }
+                        if (isSidenavOpen && isMobile()) {
+                            adjustFlyoutPosition(sidenav, sidenavOverlay);
+                        }
+                    }, 50); 
+                });
+            }
+
             // --- Unified Resize Handler ---
             window.addEventListener('resize', () => {
-                adjustSidenavPosition();
-
                 const isCartOpen = !cartOverlay.classList.contains('hidden');
-                if (isCartOpen) {
-                     if (isMobile()) {
-                        cartFlyout.classList.remove('max-w-sm');
-                        cartFlyout.classList.add('w-72');
-                        adjustCartPositionOnMobile();
-                    } else { // Switched to desktop
+                const isSidenavOpen = !sidenavOverlay.classList.contains('hidden');
+                
+                if(isMobile()) {
+                    if (isSidenavOpen) adjustFlyoutPosition(sidenav, sidenavOverlay);
+                    if (isCartOpen) adjustFlyoutPosition(cartFlyout, cartOverlay);
+                } else {
+                    // If switching to desktop, reset mobile-specific styles
+                    if (isSidenavOpen) closeSidenav(); // Close sidenav as it's mobile-only
+                    
+                    if (isCartOpen) {
                         cartFlyout.classList.remove('w-72');
                         cartFlyout.classList.add('max-w-sm');
                         cartFlyout.style.top = '';
                         cartFlyout.style.height = '';
+                        cartOverlay.style.top = '';
+                        cartOverlay.style.height = '';
                     }
                 }
             });
