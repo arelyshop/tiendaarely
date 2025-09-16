@@ -24,6 +24,18 @@
             min-width: 100%;
             box-sizing: border-box;
         }
+        /* Cart animation */
+        @keyframes cart-bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .cart-bounce-animation {
+            animation: cart-bounce 0.5s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -231,7 +243,7 @@
                 <a href="https://www.tiktok.com/@arelyshopbo" target="_blank" class="text-gray-700 hover:text-black">
                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>tiktok</title> <path d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"></path></g></svg>
                 </a>
-                <a href="https://wa.me/59167500044" target="_blank" class="text-gray-700 hover:text-black">
+                <a href="https://wa.me/59167500044" target="_blank" class="text-gray-700 hover:text-white">
                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1-.48.6-.59.73-.21.14-.4 0a5.13 5.13 0 0 1-1.49-.92 5.25 5.25 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.39 1.39 0 0 0 .18-.31.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23 2.1 2.1 0 0 0-.65 1.55A3.59 3.59 0 0 0 5 8.2 8.32 8.32 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.53 2.53 0 0 0 1.17.07 1.93 1.93 0 0 0 1.26-.88 1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21z"></path><path d="M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85 3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72zM8 14.12a6.12 6.12 0 0 1-3.15-.87l-.22-.13-2.34.61.62-2.28-.14-.23a6.18 6.18 0 0 1 9.6-7.65 6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12z"></path></g></svg>
                 </a>
             </div>
@@ -277,272 +289,172 @@
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
                     <!-- Product Card 1 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Cargador Rápido 65W</h3>
+                                <p class="text-gray-600 mt-2">Bs. 150.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 150.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Cargador Rápido 65W" data-price="150">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 150.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Cargador Rápido 65W" data-price="150">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                        <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Cargador Rápido 65W" data-price="150">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 2 -->
-                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Hub USB-C 7 en 1</h3>
+                                <p class="text-gray-600 mt-2">Bs. 250.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 250.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Hub USB-C 7 en 1" data-price="250">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 250.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Hub USB-C 7 en 1" data-price="250">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                        <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Hub USB-C 7 en 1" data-price="250">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 3 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Soporte para Laptop</h3>
+                                <p class="text-gray-600 mt-2">Bs. 120.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 120.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Soporte para Laptop" data-price="120">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 120.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Soporte para Laptop" data-price="120">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                        <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Soporte para Laptop" data-price="120">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 4 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Audífonos Bluetooth</h3>
+                                <p class="text-gray-600 mt-2">Bs. 300.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 300.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Audífonos Bluetooth" data-price="300">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 300.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Audífonos Bluetooth" data-price="300">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Audífonos Bluetooth" data-price="300">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 5 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Cable HDMI 8K</h3>
+                                <p class="text-gray-600 mt-2">Bs. 80.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 80.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Cable HDMI 8K" data-price="80">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 80.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Cable HDMI 8K" data-price="80">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Cable HDMI 8K" data-price="80">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 6 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Teclado Mecánico</h3>
+                                <p class="text-gray-600 mt-2">Bs. 450.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 450.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Teclado Mecánico" data-price="450">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 450.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Teclado Mecánico" data-price="450">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Teclado Mecánico" data-price="450">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 7 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Mouse Inalámbrico</h3>
+                                <p class="text-gray-600 mt-2">Bs. 180.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 180.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Mouse Inalámbrico" data-price="180">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 180.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Mouse Inalámbrico" data-price="180">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Mouse Inalámbrico" data-price="180">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 8 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Power Bank 20000mAh</h3>
+                                <p class="text-gray-600 mt-2">Bs. 280.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 280.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Power Bank 20000mAh" data-price="280">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 280.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Power Bank 20000mAh" data-price="280">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Power Bank 20000mAh" data-price="280">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 9 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Lámpara de Escritorio</h3>
+                                <p class="text-gray-600 mt-2">Bs. 95.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 95.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Lámpara de Escritorio" data-price="95">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 95.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Lámpara de Escritorio" data-price="95">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Lámpara de Escritorio" data-price="95">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                     <!-- Product Card 10 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden group flex flex-col">
-                        <a href="#" class="block flex-grow">
+                        <a href="#" class="block">
                             <div class="aspect-square overflow-hidden">
                                 <img src="https://placehold.co/400x400/e2e8f0/cbd5e0?text=Producto" alt="Producto de ejemplo" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             </div>
-                            <div class="p-4 pb-2">
+                            <div class="p-4">
                                 <h3 class="font-semibold text-gray-800">Webcam Full HD</h3>
+                                <p class="text-gray-600 mt-2">Bs. 220.00</p>
                             </div>
                         </a>
-                        <div class="p-4 pt-0">
-                             <!-- Mobile View -->
-                            <div class="flex justify-between items-center md:hidden">
-                                <p class="text-gray-800 font-semibold">Bs. 220.00</p>
-                                <button class="add-to-cart-btn bg-gray-200 hover:bg-gray-300 rounded-full p-1.5" data-name="Webcam Full HD" data-price="220">
-                                    <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,11H13v3a1,1,0,0,1-2,0V13H8a1,1,0,0,1,0-2h3V8a1,1,0,0,1,2,0v3h3a1,1,0,0,1,0,2Z"></path></g></svg>
-                                </button>
-                            </div>
-                            <!-- Desktop View -->
-                            <div class="hidden md:block">
-                                <p class="text-gray-600">Bs. 220.00</p>
-                                <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors mt-2" data-name="Webcam Full HD" data-price="220">
-                                    Agregar al Carrito
-                                </button>
-                            </div>
+                         <div class="mt-auto p-4 pt-0">
+                            <button class="add-to-cart-btn w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition-colors" data-name="Webcam Full HD" data-price="220">
+                                Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -669,7 +581,32 @@
 
             let cart = [];
 
+            const isMobile = () => window.innerWidth < 768;
+
+            function adjustCartPositionOnMobile() {
+                const header = document.querySelector('header');
+                if (!header || !cartFlyout) return;
+                
+                const headerRect = header.getBoundingClientRect();
+                const totalTopOffset = headerRect.bottom;
+                const availableHeight = window.innerHeight - totalTopOffset;
+
+                cartFlyout.style.top = `${totalTopOffset}px`;
+                cartFlyout.style.height = `${availableHeight}px`;
+            }
+
             const openCart = () => {
+                if (isMobile()) {
+                    cartFlyout.classList.remove('max-w-sm');
+                    cartFlyout.classList.add('w-72');
+                    adjustCartPositionOnMobile();
+                } else {
+                    cartFlyout.classList.remove('w-72');
+                    cartFlyout.classList.add('max-w-sm');
+                    cartFlyout.style.top = '';
+                    cartFlyout.style.height = '';
+                }
+                
                 cartFlyout.classList.remove('translate-x-full');
                 cartOverlay.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -717,12 +654,22 @@
             };
 
             const handleAddToCart = (e) => {
-                const button = e.currentTarget; // Use currentTarget to ensure we get the button
+                const button = e.currentTarget;
                 const name = button.dataset.name;
                 const price = parseFloat(button.dataset.price);
                 cart.push({ name, price });
                 renderCart();
-                openCart();
+                
+                // Animate cart icons
+                const cartIcons = [document.getElementById('mobile-cart-btn'), document.getElementById('desktop-cart-btn')];
+                cartIcons.forEach(icon => {
+                    if (icon) {
+                        icon.classList.add('cart-bounce-animation');
+                        setTimeout(() => {
+                            icon.classList.remove('cart-bounce-animation');
+                        }, 500); // Animation duration is 0.5s
+                    }
+                });
             };
             
             const handleRemoveFromCart = (e) => {
@@ -862,13 +809,18 @@
                 }
             };
 
-            adjustSidenavPosition();
-            window.addEventListener('resize', adjustSidenavPosition);
+            adjustSidenavPosition(); // Initial position adjustment
 
             const promoBannerCloseBtn = document.querySelector('#promo-banner button');
             if (promoBannerCloseBtn) {
                 promoBannerCloseBtn.addEventListener('click', () => {
-                    setTimeout(adjustSidenavPosition, 50); 
+                    setTimeout(() => {
+                        adjustSidenavPosition();
+                        const isCartOpen = !cartOverlay.classList.contains('hidden');
+                        if (isCartOpen && isMobile()) {
+                            adjustCartPositionOnMobile();
+                        }
+                    }, 50); 
                 });
             }
             
@@ -923,6 +875,25 @@
                     desktopMarcasSubmenu.classList.add('hidden');
                 });
             }
+            
+            // --- Unified Resize Handler ---
+            window.addEventListener('resize', () => {
+                adjustSidenavPosition();
+
+                const isCartOpen = !cartOverlay.classList.contains('hidden');
+                if (isCartOpen) {
+                     if (isMobile()) {
+                        cartFlyout.classList.remove('max-w-sm');
+                        cartFlyout.classList.add('w-72');
+                        adjustCartPositionOnMobile();
+                    } else { // Switched to desktop
+                        cartFlyout.classList.remove('w-72');
+                        cartFlyout.classList.add('max-w-sm');
+                        cartFlyout.style.top = '';
+                        cartFlyout.style.height = '';
+                    }
+                }
+            });
 
         });
     </script>
